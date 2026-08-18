@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rang &amp; Dhaaga — Ethnic Wear for Women</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#F7F1E6;
+    --ivory-dim:#EFE6D3;
+    --maroon:#8B2635;
+    --maroon-light:#A6333F;
+    --mustard:#D9A441;
+    --teal:#1F5C57;
+    --ink:#2B211B;
+    --muted:#7A6F63;
+    --white:#FFFDF8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Poppins',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+  }
+  h1,h2,h3,.display{
+    font-family:'Rozha One',serif;
+    font-weight:400;
+    letter-spacing:0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  /* motif divider — signature element, small paisley-dot border strip */
+  .motif-strip{
+    height:14px;
+    background-image:radial-gradient(circle, var(--mustard) 2.5px, transparent 2.5px);
+    background-size:22px 14px;
+    background-position:center;
+    opacity:0.85;
+  }
+  .motif-strip.thin{height:8px;background-size:16px 8px;}
+
+  /* header */
+  header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 48px;
+    background:var(--white);
+  }
+  .logo{font-family:'Rozha One',serif;font-size:24px;color:var(--maroon);}
+  .logo span{color:var(--mustard);}
+  nav ul{display:flex;gap:34px;list-style:none;font-size:14px;letter-spacing:0.03em;color:var(--ink);}
+  nav a:hover{color:var(--maroon);}
+  .cart-btn{
+    background:var(--maroon);
+    color:var(--white);
+    border:none;
+    padding:10px 20px;
+    font-family:'Poppins',sans-serif;
+    font-size:13px;
+    letter-spacing:0.04em;
+    cursor:pointer;
+    border-radius:2px;
+  }
+  .cart-btn:hover{background:var(--maroon-light);}
+
+  /* hero — jharokha arch style */
+  .hero{
+    padding:70px 48px 90px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:70px;
+    flex-wrap:wrap;
+    background:var(--ivory);
+  }
+  .hero-text{max-width:470px;}
+  .eyebrow{
+    color:var(--teal);
+    font-size:13px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    margin-bottom:16px;
+    font-weight:500;
+  }
+  .hero h1{
+    font-size:clamp(38px,5.5vw,58px);
+    line-height:1.15;
+    margin-bottom:20px;
+    color:var(--ink);
+  }
+  .hero h1 em{color:var(--maroon);font-style:normal;}
+  .hero p{color:var(--muted);font-size:16px;max-width:400px;margin-bottom:30px;}
+  .btn-primary{
+    display:inline-block;
+    background:var(--maroon);
+    color:var(--white);
+    padding:14px 32px;
+    font-family:'Poppins',sans-serif;
+    font-size:14px;
+    letter-spacing:0.04em;
+    border:none;
+    cursor:pointer;
+    border-radius:2px;
+    transition:background .15s;
+  }
+  .btn-primary:hover{background:var(--maroon-light);}
+
+  /* arch graphic */
+  .arch-wrap{
+    width:260px;
+  }
+  .arch{
+    width:260px;height:340px;
+    background:var(--teal);
+    border-radius:130px 130px 8px 8px;
+    border:6px solid var(--mustard);
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 20px 50px rgba(43,33,27,.18);
+  }
+  .arch::before{
+    content:'';
+    position:absolute;
+    inset:14px;
+    border:1px solid rgba(247,241,230,.35);
+    border-radius:110px 110px 4px 4px;
+  }
+  .arch-label{
+    position:absolute;
+    bottom:26px;left:0;right:0;
+    text-align:center;
+    color:var(--white);
+    font-family:'Rozha One',serif;
+    font-size:15px;
+    letter-spacing:0.08em;
+  }
+
+  /* section head */
+  .section-head{
+    padding:60px 48px 26px;
+    text-align:center;
+  }
+  .section-head h2{font-size:32px;color:var(--ink);margin-bottom:10px;}
+  .section-head p{color:var(--muted);font-size:14px;}
+  .filters{
+    display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:22px;
+  }
+  .filter-btn{
+    background:none;
+    border:1px solid var(--ivory-dim);
+    color:var(--muted);
+    padding:9px 20px;
+    font-size:13px;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    border-radius:20px;
+  }
+  .filter-btn.active,.filter-btn:hover{
+    border-color:var(--maroon);
+    color:var(--maroon);
+    background:var(--white);
+  }
+
+  /* product grid */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+    gap:28px;
+    padding:20px 48px 70px;
+  }
+  .card{
+    background:var(--white);
+    border-radius:6px;
+    overflow:hidden;
+    position:relative;
+    transition:transform .18s ease, box-shadow .18s ease;
+    box-shadow:0 2px 8px rgba(43,33,27,.06);
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(43,33,27,.12);}
+  .swatch{
+    height:210px;
+    position:relative;
+  }
+  .swatch::after{
+    content:'';
+    position:absolute;inset:0;
+    background-image:repeating-linear-gradient(115deg, rgba(255,255,255,.08) 0 3px, transparent 3px 9px);
+  }
+  .swatch-border{
+    position:absolute;bottom:0;left:0;right:0;height:5px;
+    background:var(--mustard);
+  }
+  .card-body{padding:18px 20px 22px;}
+  .card-cat{
+    font-size:11px;
+    color:var(--teal);
+    text-transform:uppercase;
+    letter-spacing:0.09em;
+    margin-bottom:6px;
+    font-weight:500;
+  }
+  .card-name{font-family:'Rozha One',serif;font-size:19px;margin-bottom:5px;color:var(--ink);}
+  .card-desc{font-size:13px;color:var(--muted);margin-bottom:16px;}
+  .card-footer{display:flex;justify-content:space-between;align-items:center;}
+  .card-price{font-family:'Poppins',sans-serif;font-size:16px;font-weight:600;color:var(--maroon);}
+  .add-btn{
+    background:var(--ivory);
+    color:var(--ink);
+    border:1px solid var(--ivory-dim);
+    padding:8px 16px;
+    font-size:12px;
+    letter-spacing:0.03em;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    border-radius:2px;
+  }
+  .add-btn:hover{background:var(--maroon);color:var(--white);border-color:var(--maroon);}
+
+  /* footer */
+  footer{
+    padding:56px 48px 40px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:30px;
+    color:var(--muted);
+    font-size:13px;
+    background:var(--white);
+  }
+  .footer-brand{font-family:'Rozha One',serif;color:var(--maroon);font-size:19px;margin-bottom:8px;}
+
+  /* cart drawer */
+  .overlay{
+    position:fixed;inset:0;background:rgba(43,33,27,.45);
+    opacity:0;pointer-events:none;transition:opacity .2s;
+    z-index:10;
+  }
+  .overlay.open{opacity:1;pointer-events:auto;}
+  .drawer{
+    position:fixed;top:0;right:0;bottom:0;
+    width:380px;max-width:90vw;
+    background:var(--white);
+    transform:translateX(100%);
+    transition:transform .25s ease;
+    z-index:11;
+    display:flex;flex-direction:column;
+    padding:28px;
+  }
+  .drawer.open{transform:translateX(0);}
+  .drawer-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+  .drawer-head h3{color:var(--maroon);font-size:20px;}
+  .close-btn{background:none;border:none;color:var(--ink);font-size:22px;cursor:pointer;}
+  .cart-items{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:16px;}
+  .cart-item{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:14px;}
+  .cart-item-name{font-weight:500;}
+  .cart-item-meta{color:var(--muted);font-size:12px;}
+  .qty-controls{display:flex;align-items:center;gap:8px;}
+  .qty-controls button{
+    background:none;border:1px solid var(--ivory-dim);color:var(--ink);
+    width:22px;height:22px;border-radius:50%;cursor:pointer;font-size:14px;line-height:1;
+  }
+  .cart-empty{color:var(--muted);font-size:14px;padding:30px 0;text-align:center;}
+  .cart-total{
+    border-top:1px dashed var(--ivory-dim);
+    margin-top:16px;padding-top:16px;
+    display:flex;justify-content:space-between;
+    font-size:17px;
+    color:var(--maroon);
+    font-weight:600;
+  }
+
+  @media(max-width:640px){
+    header{padding:18px 20px;}
+    nav{display:none;}
+    .hero{padding:50px 20px;}
+    .section-head{padding:50px 20px 20px;}
+    .grid{padding:20px 20px 40px;}
+    footer{padding:40px 20px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Rang <span>&amp;</span> Dhaaga</div>
+  <nav><ul>
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#footer">Contact</a></li>
+  </ul></nav>
+  <button class="cart-btn" onclick="openCart()">Bag (<span id="cart-count">0</span>)</button>
+</header>
+
+<div class="motif-strip"></div>
+
+<section class="hero">
+  <div class="hero-text">
+    <div class="eyebrow">Handpicked &middot; Handwoven &middot; Since 2021</div>
+    <h1>Everyday elegance, <em>woven in.</em></h1>
+    <p>Sarees, kurtis and lehengas sourced from weavers across India — colour and craft for every occasion.</p>
+    <a href="#shop" class="btn-primary">Explore the collection</a>
+  </div>
+  <div class="arch-wrap">
+    <div class="arch">
+      <div class="arch-label">रंग &amp; धागा</div>
+    </div>
+  </div>
+</section>
+
+<div class="motif-strip thin"></div>
+
+<div id="shop">
+  <div class="section-head">
+    <h2>The Collection</h2>
+    <p>Every piece finished by hand, from loom to hem.</p>
+    <div class="filters" id="filters"></div>
+  </div>
+  <div class="grid" id="product-grid"></div>
+</div>
+
+<div class="motif-strip thin"></div>
+
+<footer id="footer">
+  <div>
+    <div class="footer-brand">Rang &amp; Dhaaga</div>
+    <p>Ethnic wear for women, made with care.</p>
+  </div>
+  <div>
+    <div class="footer-brand" style="font-size:15px;">Shop</div>
+    <p>Sarees &middot; Kurtis &middot; Lehengas &middot; Dupattas</p>
+  </div>
+  <div>
+    <div class="footer-brand" style="font-size:15px;">Contact</div>
+    <p>hello@rangdhaaga.example<br>Mon&ndash;Sat, 10am&ndash;7pm</p>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="closeCart()"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>Your Bag</h3>
+    <button class="close-btn" onclick="closeCart()">&times;</button>
+  </div>
+  <div class="cart-items" id="cart-items"></div>
+  <div class="cart-total">
+    <span>Total</span>
+    <span id="cart-total">₹0</span>
+  </div>
+</div>
+
+<script>
+  const PRODUCTS = [
+    {id:1, name:'Banarasi Silk Saree', cat:'Sarees', desc:'Handwoven, gold zari border', price:4200, color:'#8B2635'},
+    {id:2, name:'Chanderi Cotton Saree', cat:'Sarees', desc:'Light weave, block-printed', price:2100, color:'#D9A441'},
+    {id:3, name:'Anarkali Kurti Set', cat:'Kurtis', desc:'Rayon, floral thread work', price:1450, color:'#1F5C57'},
+    {id:4, name:'Straight-Cut Kurti', cat:'Kurtis', desc:'Cotton, everyday wear', price:890, color:'#A6333F'},
+    {id:5, name:'Bridal Lehenga', cat:'Lehengas', desc:'Velvet, hand embroidery', price:12500, color:'#6B1E2A'},
+    {id:6, name:'Festive Lehenga', cat:'Lehengas', desc:'Georgette, mirror work', price:6800, color:'#C98A2B'},
+    {id:7, name:'Organza Dupatta', cat:'Dupattas', desc:'Sequin border, lightweight', price:750, color:'#3C7A73'},
+    {id:8, name:'Phulkari Dupatta', cat:'Dupattas', desc:'Hand-embroidered, Punjab', price:980, color:'#B5652D'},
+  ];
+
+  let cart = []; // {id, qty}
+  let activeFilter = 'All';
+
+  function renderFilters(){
+    const cats = ['All', ...new Set(PRODUCTS.map(p=>p.cat))];
+    const el = document.getElementById('filters');
+    el.innerHTML = cats.map(c =>
+      `<button class="filter-btn ${c===activeFilter?'active':''}" onclick="setFilter('${c}')">${c}</button>`
+    ).join('');
+  }
+
+  function setFilter(cat){
+    activeFilter = cat;
+    renderFilters();
+    renderGrid();
+  }
+
+  function renderGrid(){
+    const list = activeFilter==='All' ? PRODUCTS : PRODUCTS.filter(p=>p.cat===activeFilter);
+    document.getElementById('product-grid').innerHTML = list.map(p => `
+      <div class="card">
+        <div class="swatch" style="background:${p.color}">
+          <div class="swatch-border"></div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">${p.cat}</div>
+          <div class="card-name">${p.name}</div>
+          <div class="card-desc">${p.desc}</div>
+          <div class="card-footer">
+            <span class="card-price">₹${p.price.toLocaleString('en-IN')}</span>
+            <button class="add-btn" onclick="addToCart(${p.id})">Add</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function addToCart(id){
+    const item = cart.find(i=>i.id===id);
+    if(item) item.qty++;
+    else cart.push({id, qty:1});
+    renderCart();
+    openCart();
+  }
+
+  function changeQty(id, delta){
+    const item = cart.find(i=>i.id===id);
+    if(!item) return;
+    item.qty += delta;
+    if(item.qty<=0) cart = cart.filter(i=>i.id!==id);
+    renderCart();
+  }
+
+  function renderCart(){
+    const count = cart.reduce((sum,i)=>sum+i.qty,0);
+    document.getElementById('cart-count').textContent = count;
+
+    const itemsEl = document.getElementById('cart-items');
+    if(cart.length===0){
+      itemsEl.innerHTML = '<div class="cart-empty">Your bag is empty.</div>';
+    } else {
+      itemsEl.innerHTML = cart.map(i => {
+        const p = PRODUCTS.find(p=>p.id===i.id);
+        return `
+          <div class="cart-item">
+            <div>
+              <div class="cart-item-name">${p.name}</div>
+              <div class="cart-item-meta">₹${p.price.toLocaleString('en-IN')} × ${i.qty}</div>
+            </div>
+            <div class="qty-controls">
+              <button onclick="changeQty(${p.id},-1)">−</button>
+              <span>${i.qty}</span>
+              <button onclick="changeQty(${p.id},1)">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    const total = cart.reduce((sum,i)=>{
+      const p = PRODUCTS.find(p=>p.id===i.id);
+      return sum + p.price*i.qty;
+    },0);
+    document.getElementById('cart-total').textContent = '₹'+total.toLocaleString('en-IN');
+  }
+
+  function openCart(){
+    document.getElementById('drawer').classList.add('open');
+    document.getElementById('overlay').classList.add('open');
+  }
+  function closeCart(){
+    document.getElementById('drawer').classList.remove('open');
+    document.getElementById('overlay').classList.remove('open');
+  }
+
+  renderFilters();
+  renderGrid();
+  renderCart();
+</script>
+
+</body>
+</html>
